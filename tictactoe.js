@@ -89,3 +89,36 @@ const board = [
   ['.', '.', '.']
 ];
 
+let winner;
+let input = [];
+
+for (let i = 0; i < 9; i++) {
+  let player;
+
+  if (i % 2 === 0) {
+    player = 'X';
+  } else {
+    player = 'O';
+  }
+  
+  console.log('Player:', player);
+  console.log(printBoard(board));
+  
+  let isBlocked = false;
+  
+  do {
+    do {
+      input[0] = window.prompt('Enter row:');
+    } while (input[0] !== 0 || input[0] !== 1 || input[0] !== 2);
+    
+    do {
+      input[1] = window.prompt('Enter col:');
+    } while (input[1] !== 0 || input[1] !== 1 || input[1] !== 2);
+    
+    if (board[input[0]][input[1]] !== '.') {
+      isBlocked = true;
+    }
+  } while (!isBlocked);
+
+  
+}
